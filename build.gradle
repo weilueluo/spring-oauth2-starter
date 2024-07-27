@@ -1,0 +1,83 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.1'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.wwewe'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-resource-server
+//	implementation 'org.springframework.security:spring-security-oauth2-resource-server'
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-authorization-server
+	implementation 'org.springframework.security:spring-security-oauth2-authorization-server'
+
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
+	implementation 'org.springframework.data:spring-data-commons'  // for AnnotatedTypeScanner
+
+
+//	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation 'org.postgresql:postgresql:42.7.2'
+
+	// https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+	implementation 'org.hibernate.orm:hibernate-core:6.5.2.Final'
+	// JPA Metamodel Generator
+	// https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-jpamodelgen
+	annotationProcessor 'org.hibernate.orm:hibernate-jpamodelgen:6.5.2.Final'
+	// https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+	// implementation 'org.hibernate.validator:hibernate-validator:7.0.5.Final'
+	// https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-hikaricp
+	implementation 'org.hibernate.orm:hibernate-hikaricp:6.5.2.Final'
+	implementation 'com.zaxxer:HikariCP:5.1.0'
+
+	// https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+	// https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+	implementation 'jakarta.validation:jakarta.validation-api:3.1.0'
+
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+	implementation 'com.tsm4j:tsm4j:1.0.2'
+
+	// https://mvnrepository.com/artifact/commons-validator/commons-validator
+	implementation 'commons-validator:commons-validator:1.9.0'
+
+	implementation 'com.auth0:java-jwt:4.4.0'
+
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation 'commons-io:commons-io:2.16.1'
+
+
+
+//	// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+//	implementation 'org.slf4j:slf4j-api:1.7.25'
+//	// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+//	implementation 'ch.qos.logback:logback-classic:1.5.6'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testCompileOnly 'org.projectlombok:lombok:1.18.34'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+

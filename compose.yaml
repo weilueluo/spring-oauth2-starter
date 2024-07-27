@@ -1,0 +1,20 @@
+services:
+  postgres:
+    container_name: "postgres"
+    image: "postgres:16.3-alpine3.20"
+    restart: always
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_HOST_AUTH_METHOD: "password"
+    ports:
+      - "5432:5432"
+  postgres-admin:
+    container_name: "postgres_admin"
+    image: "dpage/pgadmin4:8.9"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@domain.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    ports:
+      - "80:80"
